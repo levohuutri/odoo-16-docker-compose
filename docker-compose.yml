@@ -9,7 +9,7 @@ services:
       - POSTGRES_DB=postgres
     restart: always             # run as a service
     volumes:
-        - ./postgresql:/var/lib/postgresql/data
+        - postgresql:/var/lib/postgresql
 
   odoo16:
     image: odoo:16
@@ -32,4 +32,5 @@ services:
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
     restart: always             # run as a service
-    
+volumes:
+   postgresql:
